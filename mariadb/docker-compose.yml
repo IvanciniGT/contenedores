@@ -1,0 +1,15 @@
+version: '2'
+mariadb:
+    image: mariadb:latest
+    container_name: mariadb
+    hostname: mariadbhost
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: PRUEBA
+      MYSQL_USER: usuario
+      MYSQL_PASSWORD: password
+    restart: on-failure
+    ports: 
+      - "${MARIADB_PORT}:3306"
+    volumes:
+     - ${VAR_HOME}/mariadb:/var/lib/mysql
